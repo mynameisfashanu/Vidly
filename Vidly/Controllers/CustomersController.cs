@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity; // error because Include extension method is defined in different name space
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,26 +12,29 @@ namespace Vidly.Controllers
     public class CustomersController : Controller
     {
 
-        private List<Customer> customers { get; set; }
+        private ApplicationDbContext _context;
 
-        public CustomersController() : base()
+        public CustomersController()
         {
-            customers = new List<Customer>
-            {
-                new Customer {Id = 1, Name = "Fashanu Willies" },
-                new Customer {Id = 2, Name = "Irene Willies" },
-                new Customer {Id = 3, Name = "Guilot Willies" },
-            };
+            _context = new ApplicationDbContext();
+        }
 
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
         }
 
         // GET: Customers
         public ActionResult Index()
         {
 
+            // views don't display model relationships by default.
+            // we have to explicting tell the view to load model with associated models. 
+            // we use th include extension method in linq to do this - this is known as eager loading.
             var viewModel = new CustomerViewModel
             {
-                Customers = customers
+                Customers = _context.Customers.Include(c => c.MembershipType).ToList() 
             };
 
             return View(viewModel);
@@ -39,12 +43,12 @@ namespace Vidly.Controllers
 
         public ActionResult Detail(int? id)
         {
-            foreach (var customer in customers)
-            {
-                if (customer.Id == id)
-                    return View(customer);
-            }
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            if (customer != null)
+                return View(customer);
+
             return HttpNotFound();
         }
+
     }
 }

@@ -13,13 +13,16 @@
         <thead>
             <tr>
                 <th>Customer</th>
+                <th>Discount rate</th>
             </tr>
+
         </thead>
         <tbody>
             @foreach (var customer in Model.Customers)
             {
                 <tr>
                     <td>@Html.ActionLink(@customer.Name, "Detail", "Customers", new { Id = @customer.Id }, null)</td>
+                    <td>@customer.MembershipType.DiscountRate%</td>
                 </tr>
             }
         </tbody>

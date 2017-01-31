@@ -80,11 +80,13 @@ namespace Vidly.Controllers
             return Content("ID = " + id);
         }
 
-
+        
+        
         // Returns a view with a list of movies in the database.
         // If you want to make a parameter in an action optional, you make it nullable(You can set the value to null),
         // You use a question mark, strings are a reference type and 
-        // 
+        //
+
         public ActionResult Index()
         {
 
