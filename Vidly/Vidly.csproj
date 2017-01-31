@@ -195,9 +195,42 @@
     <Compile Include="Migrations\201701311128487_ApplyAnnotationsToCusomerName.Designer.cs">
       <DependentUpon>201701311128487_ApplyAnnotationsToCusomerName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701311259046_AddedNameToMembershipType.cs" />
+    <Compile Include="Migrations\201701311259046_AddedNameToMembershipType.Designer.cs">
+      <DependentUpon>201701311259046_AddedNameToMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701311332244_UpdatedMembershipTypeNameField.cs" />
+    <Compile Include="Migrations\201701311332244_UpdatedMembershipTypeNameField.Designer.cs">
+      <DependentUpon>201701311332244_UpdatedMembershipTypeNameField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701311350109_SetNameOfMembershipTypes.cs" />
+    <Compile Include="Migrations\201701311350109_SetNameOfMembershipTypes.Designer.cs">
+      <DependentUpon>201701311350109_SetNameOfMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701311502454_AddedBirthDatePropertyInCustomersModel.cs" />
+    <Compile Include="Migrations\201701311502454_AddedBirthDatePropertyInCustomersModel.Designer.cs">
+      <DependentUpon>201701311502454_AddedBirthDatePropertyInCustomersModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701311515386_AddedRequiredAnnotationToNamePropertyOfMembershipType.cs" />
+    <Compile Include="Migrations\201701311515386_AddedRequiredAnnotationToNamePropertyOfMembershipType.Designer.cs">
+      <DependentUpon>201701311515386_AddedRequiredAnnotationToNamePropertyOfMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701311535478_AddedAdditionalRequiredMovieProperties.cs" />
+    <Compile Include="Migrations\201701311535478_AddedAdditionalRequiredMovieProperties.Designer.cs">
+      <DependentUpon>201701311535478_AddedAdditionalRequiredMovieProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701311538009_AddedGenreModelAndGenrePropertiesRelatedToMovie.cs" />
+    <Compile Include="Migrations\201701311538009_AddedGenreModelAndGenrePropertiesRelatedToMovie.Designer.cs">
+      <DependentUpon>201701311538009_AddedGenreModelAndGenrePropertiesRelatedToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701311539398_PopuldateGenreFields.cs" />
+    <Compile Include="Migrations\201701311539398_PopuldateGenreFields.Designer.cs">
+      <DependentUpon>201701311539398_PopuldateGenreFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -299,6 +332,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701311128487_ApplyAnnotationsToCusomerName.resx">
       <DependentUpon>201701311128487_ApplyAnnotationsToCusomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701311259046_AddedNameToMembershipType.resx">
+      <DependentUpon>201701311259046_AddedNameToMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701311332244_UpdatedMembershipTypeNameField.resx">
+      <DependentUpon>201701311332244_UpdatedMembershipTypeNameField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701311350109_SetNameOfMembershipTypes.resx">
+      <DependentUpon>201701311350109_SetNameOfMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701311502454_AddedBirthDatePropertyInCustomersModel.resx">
+      <DependentUpon>201701311502454_AddedBirthDatePropertyInCustomersModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701311515386_AddedRequiredAnnotationToNamePropertyOfMembershipType.resx">
+      <DependentUpon>201701311515386_AddedRequiredAnnotationToNamePropertyOfMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701311535478_AddedAdditionalRequiredMovieProperties.resx">
+      <DependentUpon>201701311535478_AddedAdditionalRequiredMovieProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701311538009_AddedGenreModelAndGenrePropertiesRelatedToMovie.resx">
+      <DependentUpon>201701311538009_AddedGenreModelAndGenrePropertiesRelatedToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701311539398_PopuldateGenreFields.resx">
+      <DependentUpon>201701311539398_PopuldateGenreFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
