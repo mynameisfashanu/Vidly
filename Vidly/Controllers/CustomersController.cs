@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity; // error because Include extension method is defined in different name space
+using System.Data.Entity; // Error because Include extension method is defined in different name space
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -29,9 +29,6 @@ namespace Vidly.Controllers
         public ActionResult Index()
         {
 
-            // views don't display model relationships by default.
-            // we have to explicting tell the view to load model with associated models. 
-            // we use th include extension method in linq to do this - this is known as eager loading.
             var viewModel = new CustomerViewModel
             {
                 Customers = _context.Customers.Include(c => c.MembershipType).ToList() 
