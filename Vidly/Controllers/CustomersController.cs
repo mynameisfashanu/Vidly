@@ -25,6 +25,42 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
+        public ActionResult CustmerForm()
+        {
+
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new CustomerFormViewModel()
+            {
+                Membershiptypes = membershipTypes
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Customer customer) // model binding - mvc binds model to request data.
+        {
+
+            if(customer.Id == 0)
+            {
+                _context.Customers.Add(customer);
+            }
+            else
+            {
+                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+
+                //TryUpdateModel(customerInDb); // Introduces security vulnerabilites, update all request data.
+
+                customerInDb.Name = customer.Name;
+                customerInDb.Birthdate = customer.Birthdate;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Customers");
+        }
+        
         // GET: Customers
         public ActionResult Index()
         {
@@ -46,6 +82,23 @@ namespace Vidly.Controllers
 
             return HttpNotFound();
         }
+
+
+        public ActionResult Edit(int ? id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+            if (customer != null)
+            {
+                var viewModel = new CustomerFormViewModel()
+                {
+                    Customer = customer,
+                    Membershiptypes = _context.MembershipTypes.ToList()
+                };
+                return View("CustomerForm", viewModel); // Return CustomerForm View, instead of a View Called Edit
+            }
+            return HttpNotFound();
+        }
+
 
     }
 }

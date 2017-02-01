@@ -13,7 +13,7 @@ using System.Data.Entity; // error because Include extension method is defined i
 namespace Vidly.Controllers
 {
 
-
+    
     public class MoviesController : Controller
     {
 
@@ -44,8 +44,6 @@ namespace Vidly.Controllers
                 Movie = movie,
                 Customers = customers
             };
-
-
             return View(viewModel);
 
         }
