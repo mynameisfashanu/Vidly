@@ -48,7 +48,7 @@ namespace Vidly.Controllers
             return View(viewModel);
         }
 
-
+        [HttpPost]
         public ActionResult Save(Movie movie)
         {
 
