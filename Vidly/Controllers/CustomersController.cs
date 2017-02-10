@@ -25,9 +25,8 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
-        public ActionResult CustmerForm()
+        public ActionResult CustomerForm()
         {
-
             var membershipTypes = _context.MembershipTypes.ToList();
             var viewModel = new CustomerFormViewModel()
             {
@@ -36,6 +35,7 @@ namespace Vidly.Controllers
 
             return View(viewModel);
         }
+
 
         [HttpPost]
         public ActionResult Save(Customer customer) // model binding - mvc binds model to request data.
@@ -98,7 +98,5 @@ namespace Vidly.Controllers
             }
             return HttpNotFound();
         }
-
-
     }
 }
