@@ -7,6 +7,9 @@
 
 <h2>Customers</h2>
 
+@Html.ActionLink("New Customer", "CustomerForm", "Customer", new { @class = "btn btn-primary"})
+
+
 @if (@Model.Customers.Count > 0)
 {
     <table class="table table‐bordered table-hover">

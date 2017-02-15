@@ -227,6 +227,10 @@
     <Compile Include="Migrations\201701311539398_PopuldateGenreFields.Designer.cs">
       <DependentUpon>201701311539398_PopuldateGenreFields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702150811280_RequiredFieldAdded.cs" />
+    <Compile Include="Migrations\201702150811280_RequiredFieldAdded.Designer.cs">
+      <DependentUpon>201702150811280_RequiredFieldAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -234,6 +238,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
+    <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -360,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701311539398_PopuldateGenreFields.resx">
       <DependentUpon>201701311539398_PopuldateGenreFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702150811280_RequiredFieldAdded.resx">
+      <DependentUpon>201702150811280_RequiredFieldAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

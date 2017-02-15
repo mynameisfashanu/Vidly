@@ -28,8 +28,10 @@ namespace Vidly.Controllers
         public ActionResult CustomerForm()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
+
             var viewModel = new CustomerFormViewModel()
             {
+                Customer = new Customer(),
                 Membershiptypes = membershipTypes
             };
 
@@ -38,8 +40,19 @@ namespace Vidly.Controllers
 
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer) // model binding - mvc binds model to request data.
         {
+
+            if(!ModelState.IsValid)
+            {
+                var viewModel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    Membershiptypes = _context.MembershipTypes.ToList()
+                };
+                return View("CustomerForm", viewModel);
+            } 
 
             if(customer.Id == 0)
             {
