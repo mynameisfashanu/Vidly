@@ -43,7 +43,7 @@ namespace Vidly.Controllers.Api
             var movie = Mapper.Map<MovieDto, Movie>(movieDto);
             _context.Movies.Add(movie);
             _context.SaveChanges();
-            return Created(new Uri(Request.RequestUri + "/" + movieDto.Id), movieDto);  
+            return Created(new Uri(Request.RequestUri + "/" + movie.Id), movieDto);  
         }
 
         [HttpPut]
