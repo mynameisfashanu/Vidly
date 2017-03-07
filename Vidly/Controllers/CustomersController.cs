@@ -77,13 +77,7 @@ namespace Vidly.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-
-            var viewModel = new CustomerViewModel
-            {
-                Customers = _context.Customers.Include(c => c.MembershipType).ToList() 
-            };
-
-            return View(viewModel);
+            return View();
         }
 
 
