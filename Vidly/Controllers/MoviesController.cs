@@ -8,8 +8,6 @@ using Vidly.ViewModels;
 using System.Data.Entity; // error because Include extension method is defined in different name space
 
 
-
-
 namespace Vidly.Controllers
 {
 
@@ -30,26 +28,9 @@ namespace Vidly.Controllers
         }
 
 
-        // GET: Movies
-        public ActionResult Random()
-        {
-            var movie = new Movie() { Name = "Sherk!" };
-            var customers = new List<Customer>
-            {
-                new Customer { Name = "Customer 1" },
-                new Customer { Name = "Customer 2" }
-            };
-
-            var viewModel = new RandomMovieViewModel
-            {
-                Movie = movie,
-                Customers = customers
-            };
-            return View(viewModel);
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Save(Movie movie)
         {
 
@@ -83,6 +64,8 @@ namespace Vidly.Controllers
             return RedirectToAction("Index", "Movies");
         }
 
+
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Create()
         {
             var genres = _context.Genres.ToList();
@@ -93,6 +76,8 @@ namespace Vidly.Controllers
             return View("MovieForm", viewModel);
         }
 
+
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
@@ -109,10 +94,12 @@ namespace Vidly.Controllers
             return View("MovieForm",viewModel);
         }
 
-       
+
         public ActionResult Index()
         {
-            return View();
+            if(User.IsInRole(RoleName.CanManageMovies))
+                return View();
+            return View("ReadOnlyList");
         }
 
 
@@ -123,6 +110,7 @@ namespace Vidly.Controllers
                     return View(movie);
             return HttpNotFound();
         }
+
 
         [Route("movies/released/{year}/{month:regex(\\d{2}):range(1, 12)}")]
         public ActionResult ByReleaseDate(int year, int month)
