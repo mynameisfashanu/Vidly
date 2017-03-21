@@ -27,7 +27,6 @@ namespace Vidly.Controllers
             _context.Dispose();
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = RoleName.CanManageMovies)]
@@ -94,7 +93,6 @@ namespace Vidly.Controllers
             return View("MovieForm",viewModel);
         }
 
-
         public ActionResult Index()
         {
             if(User.IsInRole(RoleName.CanManageMovies))
@@ -118,6 +116,8 @@ namespace Vidly.Controllers
             return Content(year + "/" + month);
         }
 
+
+        
 
 
     }

@@ -77,6 +77,7 @@ namespace Vidly.Controllers
         // GET: Customers
         public ActionResult Index()
         {
+
             return View();
         }
 
@@ -105,5 +106,7 @@ namespace Vidly.Controllers
             }
             return HttpNotFound();
         }
+
+
     }
 }
